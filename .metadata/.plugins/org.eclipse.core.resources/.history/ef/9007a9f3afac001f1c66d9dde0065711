@@ -1,0 +1,5 @@
+package com.tranPropagation.model;
+
+public class Department {
+
+}

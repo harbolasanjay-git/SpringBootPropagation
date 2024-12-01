@@ -1,0 +1,21 @@
+package com.tranPropagation;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.tranPropagation.service.StudentService;
+
+@RestController
+@RequestMapping("/api")
+public class StudentController {
+	@Autowired
+	private StudentService studentService;
+	
+	@PostMapping("/save/{studentName}/{address}")
+	public String saveStudentDetail(@PathVariable("studentName") String studentName,@PathVariable("address") String address) {
+		return studentService.saveStudentDetail(studentName, address);
+	}
+}

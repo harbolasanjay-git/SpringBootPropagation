@@ -1,0 +1,14 @@
+package com.tranPropagation;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.tranPropagation.service.StudentService;
+
+@RestController
+@RequestMapping("/api")
+public class StudentController {
+	@Autowired
+	private StudentService studentService;
+}

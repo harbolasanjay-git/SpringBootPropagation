@@ -1,0 +1,6 @@
+package com.tranPropagation.service;
+
+@Service
+public class DepartmentService {
+
+}

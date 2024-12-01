@@ -1,0 +1,26 @@
+package com.tranPropagation.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.tranPropagation.model.Department;
+import com.tranPropagation.repository.DepartmentRepositorty;
+
+@Service
+public class DepartmentService {
+	
+	private Department department;
+
+	@Autowired
+	private DepartmentRepositorty repository;
+	
+	@Transactional(propagation = Propagation.REQUIRED)
+	public void saveDepartment(String departmentName) {
+		department = new Department();
+		department.setDepartmentName(departmentName);
+		repository.save(department);
+		System.out.println("Department Blocked Executed Successfully!!!");
+	}
+}

@@ -1,0 +1,12 @@
+package com.tranPropagation.model;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="tbl_student")
+public class Student {
+	@Id
+	@GeneratedValue(starategy=GenerationType.AUTO)
+	private int studentId;
+}

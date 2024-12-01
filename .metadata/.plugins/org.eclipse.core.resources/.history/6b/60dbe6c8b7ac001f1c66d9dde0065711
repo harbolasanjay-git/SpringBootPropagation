@@ -1,0 +1,31 @@
+package com.tranPropagation.model;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.PrimaryKeyJoinColumn;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
+@Entity
+@Data
+@Getter
+@Setter
+@Table(name="TBL_DEPARTMENT")
+public class Department {
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "department_seq")
+    @SequenceGenerator(name = "departmentt_seq", sequenceName = "TBL_DEPARTMENT_SEQ", allocationSize = 1)
+	private int deptId;
+	private String departmentName;
+	@JoinColumn(name = studentId)
+	@OneToOne
+    @PrimaryKeyJoinColumn
+	private Student students;
+}

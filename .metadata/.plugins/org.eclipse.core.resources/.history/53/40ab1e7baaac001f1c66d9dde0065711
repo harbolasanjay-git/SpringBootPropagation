@@ -1,0 +1,10 @@
+package com.tranPropagation;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class StudentDTO {
+private String studentName;
+private String address;
+private String Department;
+}

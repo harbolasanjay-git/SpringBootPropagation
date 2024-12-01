@@ -1,0 +1,22 @@
+package com.tranPropagation.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.tranPropagation.model.Department;
+import com.tranPropagation.repository.DepartmentRepositorty;
+
+@Service
+public class DepartmentService {
+	
+	private Department department;
+
+	@Autowired
+	private DepartmentRepositorty repository;
+	
+	public void saveDepartment(String departmentName) {
+		department = new Department();
+		department.setDepartmentName(departmentName);
+		repository.save(department);
+	}
+}

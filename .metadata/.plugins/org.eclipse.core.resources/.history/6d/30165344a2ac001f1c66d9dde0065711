@@ -1,0 +1,33 @@
+package com.tranPropagation.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.tranPropagation.model.Student;
+import com.tranPropagation.repository.StudentRepository;
+
+@Service
+public class StudentService {
+
+	private Student student;
+	
+	@Autowired
+	private StudentRepository repository;
+
+	public List<Student> listOfStudent() {
+		return repository.findAll();
+	}
+
+	public Student getStudentById(int studentId) {
+		return repository.getById(studentId);
+	}
+
+	public String saveStudentDetail(String studentName, String address) {
+		student = new Student(101,studentName,address);
+		student.setStudentName(studentName);
+		student.setAddress(address);
+		Student student1 = repository.save(student);
+		return "Data Saved Successfully!!"+student1;
+	}
+}
